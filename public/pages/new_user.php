@@ -37,26 +37,4 @@
         </div>
     </main>
     
-    <script>
-        $("#add-user").on("click", () => {
-            const name = $("#username").val(); 
-            const email =  $("#email").val(); 
-            const company =  $("#company").val(); 
-            console.log(email,name,company);
-            fetch("../../backend/apis/insert-user.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: `name=${name}&email=${email}&company=${company}`,
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data); 
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
-        });
-    </script>
 <?php include(SHARED_PATH . '/footer.php'); ?>
